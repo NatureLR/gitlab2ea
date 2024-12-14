@@ -1,0 +1,35 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab2ea
+spec:
+  selector:
+    matchLabels:
+      app: gitlab2ea
+  template:
+    metadata:
+      labels:
+        app: gitlab2ea
+    spec:
+      containers:
+      - name: gitlab2ea
+        # 此处需要替换为docker镜像地址
+        image: <Image>
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        #ports:
+        #- containerPort: <Port>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitlab2ea
+spec:
+  selector:
+    app: gitlab2ea
+  ports:
+  #- port: <Port>
+  #  targetPort: <Target Port>

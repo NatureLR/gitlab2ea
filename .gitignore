@@ -1,0 +1,5 @@
+gitlab2ea
+.vscode
+bin/
+.DS_Store
+artifacts/
